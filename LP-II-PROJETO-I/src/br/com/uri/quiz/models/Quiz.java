@@ -7,7 +7,6 @@ import br.com.uri.quiz.interfaces.Entity;
 public class Quiz extends Common implements Entity {
 
 	private String description;
-	private Class classRef;
 	private byte situation;
 	private ArrayList<DescriptiveQuestion> descritiveQuestions = new ArrayList<DescriptiveQuestion>();
 	private ArrayList<ObjectiveQuestion> objectiveQuestions = new ArrayList<ObjectiveQuestion>();
@@ -17,15 +16,13 @@ public class Quiz extends Common implements Entity {
 	public void readData() {
 		System.out.println("Digite a descrição do Quiz:");
 		while(!this.setDescription(scanner.nextLine()));
-		
-		this.setClassRef(new Class());
 
 		boolean addQuestionFlag = true;
 		while(addQuestionFlag) {
 			System.out.println("Adicionar uma pergunta descritiva ou objetiva? (D = descritiva | O = objetiva)");
 			
 			String questionType = scanner.nextLine();
-			while(!questionType.toLowerCase().equals("d") || !questionType.toLowerCase().equals("o")) {
+			while(!questionType.toLowerCase().equals("d") && !questionType.toLowerCase().equals("o")) {
 				this.invalidValuePrint();
 				questionType = scanner.nextLine();
 			}
@@ -44,7 +41,6 @@ public class Quiz extends Common implements Entity {
 	@Override
 	public void writeData() {
 		System.out.println("Descrição do quiz: " + this.description);
-		System.out.println("Classe do quiz: " + this.classRef.getName());
 		System.out.print("Situação: ");
 		switch(situation) {
 			case 1:
@@ -69,14 +65,6 @@ public class Quiz extends Common implements Entity {
 		this.description = description;
 		return true;
 	}
-
-	public Class getClassRef() {
-		return classRef;
-	}
-
-	public void setClassRef(Class classRef) {
-		this.classRef = classRef;
-	}
 	
 	public byte getSituation() {
 		return situation;
@@ -98,10 +86,12 @@ public class Quiz extends Common implements Entity {
 	}
 
 	public void addDescriptiveQuestion(DescriptiveQuestion descriptive) {
+		descriptive.readData();
 		this.descritiveQuestions.add(descriptive);
 	}
 	
 	public void addObjectiveQuestion(ObjectiveQuestion objective) {
+		objective.readData();
 		this.objectiveQuestions.add(objective);
 	}
 }

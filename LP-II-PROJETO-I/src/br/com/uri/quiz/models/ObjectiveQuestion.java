@@ -13,12 +13,13 @@ public class ObjectiveQuestion extends Question {
 	@Override
 	public void readData() {
 		super.readData();
-		
+
 		int answersCont = 0;
 		boolean addAnswerFlag = true;
 		while(answersCont < 5 && addAnswerFlag) {
 			System.out.println("Digite a alternativa: ");
 			this.addAnswers(scanner.nextLine());
+			answersCont++;
 			if(answersCont >= 2) {
 				System.out.println("Deseja adicionar outra alternativa?(y/n)");
 				addAnswerFlag = scanner.next().toLowerCase().equals("y");

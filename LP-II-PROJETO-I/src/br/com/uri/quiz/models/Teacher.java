@@ -38,6 +38,7 @@ public class Teacher extends Employee {
 	}
 	
 	public void addDiscipline(Discipline discipline) {
+		discipline.readData();
 		disciplines.add(discipline);
 	}
 
@@ -50,6 +51,7 @@ public class Teacher extends Employee {
 	}
 	
 	public void addQuiz(Quiz quiz) {
+		quiz.readData();
 		this.quizzes.add(quiz);
 	}
 

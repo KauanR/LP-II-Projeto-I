@@ -4,7 +4,7 @@ import br.com.uri.quiz.interfaces.Entity;
 
 public class Discipline extends Common implements Entity {
 
-	private String name;	
+	private String name;
 	
 	public void readData() {
 		System.out.println("Digite o nome da disciplina: ");
