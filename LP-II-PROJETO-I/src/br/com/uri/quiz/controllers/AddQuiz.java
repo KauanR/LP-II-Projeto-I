@@ -8,5 +8,6 @@ public class AddQuiz {
 	
 	public AddQuiz() {
 		this.teacher.readData();
+		this.teacher.writeData();
 	}
 }

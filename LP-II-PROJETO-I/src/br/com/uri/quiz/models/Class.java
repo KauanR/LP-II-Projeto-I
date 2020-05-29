@@ -69,6 +69,7 @@ public class Class extends Common implements Entity {
 	
 	public void addGraduateStudent(GraduateStudent student) {
 		this.graduateStudents.add(student);
+		student.readData();
 	}
 	
 
@@ -83,5 +84,6 @@ public class Class extends Common implements Entity {
 	
 	public void addPostGraduateStudent(PostGraduateStudent student) {
 		this.postGraduateStudents.add(student);
+		student.readData();
 	}
 }

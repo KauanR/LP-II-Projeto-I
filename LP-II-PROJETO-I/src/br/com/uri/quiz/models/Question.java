@@ -17,6 +17,7 @@ public abstract class Question extends Common implements Entity {
 		while(!this.setDescription(scanner.nextLine()));
 		System.out.println("Digite quantos pontos a questão vale: ");
 		while(!this.setPoints(scanner.nextDouble()));
+		scanner.nextLine();
 	}
 	
 	public void writeData() {

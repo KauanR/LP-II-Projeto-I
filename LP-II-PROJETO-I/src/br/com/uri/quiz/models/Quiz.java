@@ -51,6 +51,14 @@ public class Quiz extends Common implements Entity {
 				System.out.println("inativo");
 		}
 		System.out.println("");
+		System.out.println("Questões descritivas:");
+		for(DescriptiveQuestion desc : descritiveQuestions) {
+			desc.writeData();
+		}
+		System.out.println("Questões objetivas:");
+		for(ObjectiveQuestion obj : objectiveQuestions) {
+			obj.writeData();
+		}
 	}
 	
 	public String getDescription() {
@@ -71,7 +79,7 @@ public class Quiz extends Common implements Entity {
 	}
 
 	public void setSituation(String situation) {
-		switch(situation) {
+		switch(situation.toLowerCase()) {
 			case "R":
 				this.situation = 1;
 				break;

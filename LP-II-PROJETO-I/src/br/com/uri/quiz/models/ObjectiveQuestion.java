@@ -14,13 +14,14 @@ public class ObjectiveQuestion extends Question {
 	public void readData() {
 		super.readData();
 
-		int answersCont = 0;
+
 		boolean addAnswerFlag = true;
-		while(answersCont < 5 && addAnswerFlag) {
-			System.out.println("Digite a alternativa: ");
-			this.addAnswers(scanner.nextLine());
-			answersCont++;
-			if(answersCont >= 2) {
+		
+		while(addAnswerFlag) {
+			System.out.println("Digite a alternativa");
+			while(!this.addAnswers(scanner.nextLine()));
+			System.out.println(this.answers.size());
+			if(this.answers.size() > 2) {
 				System.out.println("Deseja adicionar outra alternativa?(y/n)");
 				addAnswerFlag = scanner.next().toLowerCase().equals("y");
 			}
@@ -35,8 +36,14 @@ public class ObjectiveQuestion extends Question {
 		}
 	}
 	
-	public void addAnswers(String answer) {
-		this.answers.add(answer);
+	public boolean addAnswers(String answer) {
+		if(answer.equals("")) {
+			this.invalidValuePrint();
+			return false;
+		} else {			
+			this.answers.add(answer);
+			return true;
+		}
 	}
 
 	public ArrayList<String> getAnswers() {

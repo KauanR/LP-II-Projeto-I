@@ -12,7 +12,7 @@ public class DescriptiveQuestion extends Question {
 	public void readData() {
 		super.readData();
 		System.out.println("Digite a resposta da questão: ");
-		while(!this.setDescription(scanner.nextLine()));
+		while(!this.setCorrectAnswer(scanner.nextLine()));
 	}
 	
 	@Override
