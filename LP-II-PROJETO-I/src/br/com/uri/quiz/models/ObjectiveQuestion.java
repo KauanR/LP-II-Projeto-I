@@ -5,22 +5,28 @@ import java.util.ArrayList;
 public class ObjectiveQuestion extends Question {
 
 	private ArrayList<String> answers = new ArrayList<String>();
+	private String correctAnswer = "";
 	
 	public ObjectiveQuestion() {
 		super("Objetiva");
 	}
-	
+
 	@Override
 	public void readData() {
 		super.readData();
 
-
 		boolean addAnswerFlag = true;
 		
-		while(addAnswerFlag) {
+		while(addAnswerFlag && this.answers.size() <= 5) {
 			System.out.println("Digite a alternativa");
 			while(!this.addAnswers(scanner.nextLine()));
-			System.out.println(this.answers.size());
+			
+			if(this.correctAnswer.equals("")) {
+				System.out.println("É a resposta correta?(y/n)");
+				if(scanner.next().toLowerCase().equals("y")) this.correctAnswer = this.answers.get(this.answers.size() -1);
+				scanner.nextLine();
+			}
+
 			if(this.answers.size() > 2) {
 				System.out.println("Deseja adicionar outra alternativa?(y/n)");
 				addAnswerFlag = scanner.next().toLowerCase().equals("y");

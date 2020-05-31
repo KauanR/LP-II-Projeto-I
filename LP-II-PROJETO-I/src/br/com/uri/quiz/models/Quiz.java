@@ -33,22 +33,27 @@ public class Quiz extends Common implements Entity {
 			}
 			System.out.println("Adicionar outra pergunta?(y/n)");
 			addQuestionFlag = scanner.next().toLowerCase().equals("y");
+			scanner.nextLine();
 		}
-		System.out.println("Digite a situação do Quiz? (R = rascunho | P = pronto | I = inativo)");		
-		this.setSituation(scanner.next());
+		System.out.println("Digite a situação do Quiz? (R = rascunho | P = pronto | I = inativo)");
+		while(!this.setSituation(scanner.nextLine()));
 	}
 
 	@Override
 	public void writeData() {
+		this.dashLinePrint();
 		System.out.println("Descrição do quiz: " + this.description);
 		System.out.print("Situação: ");
 		switch(situation) {
 			case 1:
 				System.out.println("rascunho");
+				break;
 			case 2:
 				System.out.println("pronto");
+				break;
 			case 3:
 				System.out.println("inativo");
+				break;
 		}
 		System.out.println("");
 		System.out.println("Questões descritivas:");
@@ -59,6 +64,7 @@ public class Quiz extends Common implements Entity {
 		for(ObjectiveQuestion obj : objectiveQuestions) {
 			obj.writeData();
 		}
+		this.dashLinePrint();
 	}
 	
 	public String getDescription() {
@@ -78,19 +84,21 @@ public class Quiz extends Common implements Entity {
 		return situation;
 	}
 
-	public void setSituation(String situation) {
+	public boolean setSituation(String situation) {
 		switch(situation.toLowerCase()) {
-			case "R":
+			case "r":
 				this.situation = 1;
-				break;
-			case "P":
+				return true;
+			case "p":
 				this.situation = 2;
-				break;
-			case "I":
+				return true;
+			case "i":
 				this.situation = 3;
-				break;
+				return true;
+			default:
+				this.invalidValuePrint();
+				return false;
 		}
-		
 	}
 
 	public void addDescriptiveQuestion(DescriptiveQuestion descriptive) {

@@ -15,4 +15,8 @@ public class Common {
 	public void invalidValuePrint() {
 		System.out.println("Valor inválido, digite novamente: ");
 	}
+	
+	public void dashLinePrint() {
+		System.out.println("----------------------------------------------------");
+	}
 }
