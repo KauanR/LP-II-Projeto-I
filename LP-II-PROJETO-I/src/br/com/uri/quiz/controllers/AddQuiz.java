@@ -8,6 +8,16 @@ public class AddQuiz {
 	
 	public AddQuiz() {
 		this.teacher.readData();
-		this.teacher.writeData();
+		//this.teacher.writeData();
 	}
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	
+	
 }

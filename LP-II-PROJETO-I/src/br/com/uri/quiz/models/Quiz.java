@@ -110,4 +110,21 @@ public class Quiz extends Common implements Entity {
 		objective.readData();
 		this.objectiveQuestions.add(objective);
 	}
+
+	public ArrayList<DescriptiveQuestion> getDescritiveQuestions() {
+		return descritiveQuestions;
+	}
+
+	public void setDescritiveQuestions(ArrayList<DescriptiveQuestion> descritiveQuestions) {
+		this.descritiveQuestions = descritiveQuestions;
+	}
+
+	public ArrayList<ObjectiveQuestion> getObjectiveQuestions() {
+		return objectiveQuestions;
+	}
+
+	public void setObjectiveQuestions(ArrayList<ObjectiveQuestion> objectiveQuestions) {
+		this.objectiveQuestions = objectiveQuestions;
+	}
+	
 }

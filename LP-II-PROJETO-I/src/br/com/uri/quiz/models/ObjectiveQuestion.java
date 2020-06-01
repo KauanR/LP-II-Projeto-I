@@ -59,4 +59,14 @@ public class ObjectiveQuestion extends Question {
 	public void setAnswers(ArrayList<String> answers) {
 		this.answers = answers;
 	}
+
+	public String getCorrectAnswer() {
+		return correctAnswer;
+	}
+
+	public void setCorrectAnswer(String correctAnswer) {
+		this.correctAnswer = correctAnswer;
+	}
+	
+	
 }
